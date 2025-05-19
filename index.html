@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyu Liu - Computer Science PhD Student</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 5px solid #3498db;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .hero .affiliation {
+            font-size: 1.1rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about {
+            background: #ecf0f1;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Research Interests */
+        .research-interests {
+            background: white;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .interest-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* Publications Section */
+        .publications {
+            background: #ecf0f1;
+        }
+
+        .publication {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .publication h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .authors {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .venue {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication .links a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .publication .links a:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Siyu Liu</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <img src="images/profile-photo.jpg" alt="Siyu Liu" class="profile-photo">
+                <h1>Siyu Liu</h1>
+                <div class="subtitle">PhD Student in Computer Science</div>
+                <div class="affiliation">Arizona State University</div>
+                <p>I am a Computer Science Ph.D student at Arizona State University, specializing in cybersecurity game and program analysis.
+                    I am passionate about using game theory to solve real-world problmes in cybersecurity.
+                    I am a member of <a href="https://sefcom.asu.edu/">Security Engineering for Future Computing (SEFCOM)</a> lab, where I am advised by with <a href="https://www.tiffanybao.com/">Dr. Tiffany Bao</a> 
+                    and actively collaborating with <a href="https://adamdoupe.com/">Dr. Adam Doupé</a>, 
+                    <a href="https://ruoyuwang.me/">Dr. Ruoyu (Fish) Wang</a>, and <a href="https://yancomm.net/">Dr. Yan Shoshitaishvili</a>.</p>
+                   
+                    <p>I am also a member of a qualifying team <a href="https://support.shellphish.net/aixcc/team/">Shellphish</a> in DARPA/ARPA-H's <a href="https://aicyberchallenge.com/">AIxCC competition</a> ($29.7M prize pool), 
+                    where I am developing Large Language Model (LLM) applications for automated vulnerability discovery and program repair.</p>
+            </div>
+        </section>
+
+
+        <!-- Research Interests -->
+        <section id="research" class="research-interests">
+            <div class="container">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <h3>Game Theory</h3>
+                        <p>Applying game theory to solve real-world cybersecurity problem.</p>
+                    </div>
+                    <div class="interest-card">
+                        <h3>Program Analysis</h3>
+                        <p>Developing innovative LLM-assited analysis tools to automate vulnerability discovery.</p>
+                    </div>                   
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="publications">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                
+                <div class="publication">
+                    <h3>Teamwork Makes the Defense Work: Defense Resource Allocation with Composable Targets</h3>
+                    <div class="authors">Siyu Liu, Rida Bazzi, Fei Fang, Tiffany Bao</div>
+                    <div class="venue">AAMAS, 2025</div>
+                    <div class="links">
+                        <a href="papars/swing_aamas.pdf">PDF</a>
+                        <a href="https://github.com/sefcom/SWING">Code</a>
+                        <a href="#">Slides</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-content">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:your.email@asu.edu">sliu274@asu.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Online Profiles</h3>
+                        <!-- <a href="#" target="_blank">Google Scholar</a><br>
+                        <a href="#" target="_blank">LinkedIn</a><br>
+                        <a href="#" target="_blank">ORCID</a><br> -->
+                        <a href="https://github.com/sliu274" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Siyu Liu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation links based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
